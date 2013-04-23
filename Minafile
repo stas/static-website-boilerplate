@@ -1,0 +1,14 @@
+require 'mina/s3'
+
+set :s3_bucket_name, 'www.domain.com'
+
+# AWS S3 settings
+set :aws_access_key_id, ''
+set :aws_secret_access_key, ''
+set :s3_files_pattern, ENV['FILES'] || ['public/**/**']
+set :s3_move_from_to, {:from => 'public/', :to => '/'}
+
+desc 'Deploys the current version to the server.'
+task :deploy do
+  invoke :'aws:s3:deploy'
+end
