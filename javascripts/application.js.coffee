@@ -1,5 +1,6 @@
 # Foundation
 # ~~~~~~~~~~
+#= require vendor/jquery
 #= require foundation/foundation
 # require foundation/foundation.alerts
 # require foundation/foundation.clearing

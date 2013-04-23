@@ -10,8 +10,7 @@ guard 'sprockets', {
       'javascripts',
       # Zurb could definitely use some ruby love
       Pathname.new(Gem::Specification.find_by_name('zurb-foundation').gem_dir).join('js'),
-    ],
-    :root_file => 'application.js'
+    ]
   } do
   watch(/^javascripts\/(.*)\.(js|coffee)/)
 end
