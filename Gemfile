@@ -5,6 +5,7 @@ group :development do
   gem 'zurb-foundation'
   gem 'therubyracer'
   gem 'coffee-script'
+  gem 'uglifier'
   gem 'guard-sprockets'
   gem 'guard-haml'
   gem 'guard-compass'
