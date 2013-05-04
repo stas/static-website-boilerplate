@@ -1,6 +1,3 @@
-// Required global settings and mixins for Foundation
-@import "foundation/foundation-global";
-
 // Settings file to override Foundation variables
 
 // You can find the variables for each component at the bottom of their
@@ -1015,4 +1012,3 @@
 // $topbar-transition-speed: 300ms;
 // $topbar-breakpoint: emCalc(940px); // Change to 9999px for always mobile layout
 // $topbar-media-query: "only screen and (min-width "#{$topbar-breakpoint}")";
-
