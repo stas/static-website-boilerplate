@@ -5,6 +5,7 @@ guard 'haml', :output => 'public' do
 end
 
 guard 'sprockets', {
+    :minify      => true,
     :destination => 'public/assets',
     :asset_paths => [
       'javascripts',
@@ -12,6 +13,7 @@ guard 'sprockets', {
       Pathname.new(Gem::Specification.find_by_name('zurb-foundation').gem_dir).join('js'),
     ]
   } do
+  ignore(/^javascripts\/_(.*)\.(js|coffee)/)
   watch(/^javascripts\/(.*)\.(js|coffee)/)
 end
 
