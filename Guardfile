@@ -1,22 +1,20 @@
 require 'sprockets'
+require 'uglifier'
+
+env = Sprockets::Environment.new
+env.js_compressor = ::Uglifier.new
+env.append_path 'javascripts'
+env.append_path 'stylesheets'
+env.append_path Pathname.new(
+  Gem::Specification.find_by_name('bourbon').gem_dir).join(
+    'app', 'assets', 'stylesheets')
 
 guard 'haml', :output => 'public' do
   watch(/^.+(\.html\.haml)/)
 end
 
-guard 'sprockets', {
-    :minify      => true,
-    :destination => 'public/assets',
-    :asset_paths => [
-      'javascripts',
-      # Zurb could definitely use some ruby love
-      Pathname.new(Gem::Specification.find_by_name('zurb-foundation').gem_dir).join('js'),
-    ]
-  } do
-  ignore(/^javascripts\/_(.*)\.(js|coffee)/)
-  watch(/^javascripts\/(.*)\.(js|coffee)/)
-end
-
-guard 'compass' do
-  watch(/^sass\/(.*)\.s[ac]ss/)
+guard 'sprockets2',
+  :digest => false, :clean => false, :gz => false, :sprockets => env do
+  watch(%r{^javascripts/.+$})
+  watch(%r{^stylesheets/.+$})
 end
