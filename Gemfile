@@ -5,8 +5,9 @@ group :development do
   gem 'coffee-script'
   gem 'uglifier'
   gem 'guard-sprockets2'
-  gem 'guard-haml'
+  gem 'guard-slim'
   gem 'rb-inotify'
   gem 'bourbon'
+  gem 'neat'
   gem 'mina-s3', :github => 'stas/mina-s3'
 end

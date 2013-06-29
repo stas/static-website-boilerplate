@@ -8,9 +8,12 @@ env.append_path 'stylesheets'
 env.append_path Pathname.new(
   Gem::Specification.find_by_name('bourbon').gem_dir).join(
     'app', 'assets', 'stylesheets')
+env.append_path Pathname.new(
+  Gem::Specification.find_by_name('neat').gem_dir).join(
+    'app', 'assets', 'stylesheets')
 
-guard 'haml', :output => 'public' do
-  watch(/^.+(\.html\.haml)/)
+guard 'slim', :slim => { :pretty => true }, :output_root => 'public' do
+  watch(%r'^.+\.slim$')
 end
 
 guard 'sprockets2',
