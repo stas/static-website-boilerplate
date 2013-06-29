@@ -1,3 +1,12 @@
 #= require_self
 
-# Your JS here
+((w, $) ->
+  $doc = $(document)
+
+  Boilerplate =
+    run: ->
+      @
+
+  w.Boilerplate = Boilerplate
+  $doc.ready( Boilerplate.run() )
+) window, jQuery
